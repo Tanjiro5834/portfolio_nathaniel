@@ -1,0 +1,142 @@
+/* Custom CSS Variables for Dark Mode (now Black and White) */
+:root {
+    --color-dark-coffee: #000000; /* Changed to black */
+    --color-light-coffee: #666666; /* Dark gray for accents, replacing a lighter brown */
+    --color-almost-black: #000000; /* Black */
+    --color-dark-gray-bg: #1A1A1A; /* Very dark gray */
+    --color-dark-text: #FFFFFF; /* White text for dark mode */
+    --color-light-bg: #FFFFFF; /* White background for light mode */
+    --color-light-text: #000000; /* Black text for light mode */
+    --color-light-gray-card: #F0F0F0; /* Light gray for cards in light mode */
+    --color-medium-gray-border: #CCCCCC; /* Medium gray for borders in light mode */
+}
+
+/* Base styles for smooth transitions */
+html {
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    transition: background-color 0.5s ease, color 0.5s ease; /* Smooth theme transition */
+    background-color: var(--color-light-bg); /* Default light mode background */
+    color: var(--color-light-text); /* Default light mode text */
+}
+
+h1, h2, h3 {
+    font-family: 'IBM Plex Mono', sans-serif;
+    font-weight: 600;
+}
+
+/* Dark mode specific styles */
+.dark {
+    background-color: var(--color-almost-black);
+    color: var(--color-dark-text);
+}
+
+.dark .bg-white {
+    background-color: var(--color-dark-gray-bg);
+    color: var(--color-dark-text);
+}
+
+.dark .text-black {
+    color: var(--color-dark-text);
+}
+
+.dark .bg-gray-100 {
+    background-color: var(--color-dark-gray-bg);
+    border-color: #444;
+}
+
+.dark .text-gray-700 {
+    color: var(--color-dark-text);
+}
+
+.dark .border-gray-200 {
+    border-color: #444;
+}
+
+.dark .focus\:ring-dark-coffee:focus {
+    --tw-ring-color: var(--color-light-coffee);
+}
+
+/* Profile picture glowing border */
+.profile-glow-container {
+    animation: none !important;
+    box-shadow: none !important;
+}
+
+
+.profile-glow-container:hover::before {
+    opacity: 1;
+    filter: blur(4px);
+}
+
+@keyframes pulse-glow {
+    0% {
+        transform: scale(1);
+        /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.4); Removed shadow */
+    }
+    100% {
+        transform: scale(1.02);
+        /* box-shadow: 0 0 10px rgba(51, 51, 51, 0.6); Removed shadow */
+    }
+}
+
+/* Section padding */
+.section-padding {
+    padding: 80px 24px; /* Increased padding for better visual separation */
+}
+
+@media (min-width: 768px) {
+    .section-padding {
+        padding: 100px 48px;
+    }
+}
+
+/* Fade-in animation for sections */
+.animate-fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-fade-in-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Project card hover effect */
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Button hover effects */
+.btn-primary {
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-light-coffee); /* Uses updated light coffee (dark gray) */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Input focus effect */
+input:focus, textarea:focus {
+    border-color: var(--color-dark-coffee); /* Uses updated dark coffee (black) */
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3); /* Adjusted to black */
+}
+
+/* Mobile menu button animation */
+#mobile-menu-button {
+    transition: transform 0.3s ease;
+}
+#mobile-menu-button.open {
+    transform: rotate(90deg);
+}

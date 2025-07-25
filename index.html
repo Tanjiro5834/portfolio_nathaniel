@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nathaniel Coronacion</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Enable dark mode based on 'dark' class
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-coffee': '#4A3C32',
+                        'light-coffee': '#6F5B4E', // A lighter shade for hover/accents
+                        'almost-black': '#1A1A1A', // A dark background for dark mode
+                        'dark-gray-bg': '#2D2D2D', // Slightly lighter dark background
+                        'dark-text': '#E0E0E0', // Light text for dark mode
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased bg-white text-black">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-black text-white p-4 sticky top-0 z-50 shadow-lg">
+        <div class="container-max-width mx-auto flex justify-between items-center">
+            <a href="#home" class="text-xl font-bold text-white rounded-md p-2 hover:bg-light-coffee transition-colors">Nathaniel Coronacion</a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#home" class="hover:text-light-coffee transition-colors">Home</a>
+                <a href="#about" class="hover:text-light-coffee transition-colors">About</a>
+                <a href="#projects" class="hover:text-light-coffee transition-colors">Projects</a>
+                <a href="#skills" class="hover:text-light-coffee transition-colors">Skills</a>
+                <a href="#experience" class="hover:text-light-coffee transition-colors">Experience</a>
+                <a href="#education" class="hover:text-light-coffee transition-colors">Education</a>
+                <a href="#contact" class="hover:text-light-coffee transition-colors">Contact</a>
+                <!-- Dark Mode Toggle -->
+                <button id="theme-toggle" class="ml-4 p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-dark-coffee">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path id="sun-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h1M4 12H3m15.325 6.757l-.707-.707M6.707 6.707l-.707-.707m10.606 0l.707-.707M6.707 17.293l-.707.707M12 7a5 5 0 100 10 5 5 0 000-10z"></path>
+                        <path id="moon-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black mt-2 rounded-md shadow-lg">
+            <a href="#home" class="block py-2 px-4 text-white hover:bg-light-coffee transition-colors rounded-md">Home</a>
+            <a href="#about" class="block py-2 px-4 text-white hover:bg-light-coffee transition-colors rounded-md">About</a>
+            <a href="#projects" class="block py-2 px-4 text-white hover:bg-light-coffee transition-colors rounded-md">Projects</a>
+            <a href="#skills" class="block py-2 px-4 text-white hover:bg-light-coffee transition-colors rounded-md">Skills</a>
+            <a href="#experience" class="block py-2 px-4 text-white hover:bg-light-coffee transition-colors rounded-md">Experience</a>
+            <a href="#education" class="block py-2 px-4 text-white hover:bg-light-coffee transition-colors rounded-md">Education</a>
+            <a href="#contact" class="block py-2 px-4 text-white hover:bg-light-coffee transition-colors rounded-md">Contact</a>
+            <!-- Dark Mode Toggle for Mobile -->
+            <button id="mobile-theme-toggle" class="w-full text-left py-2 px-4 text-white hover:bg-gray-700 transition-colors duration-300 rounded-md flex items-center justify-center space-x-2 mt-2">
+                <span class="text-sm">Toggle Theme</span>
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path id="mobile-sun-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h1M4 12H3m15.325 6.757l-.707-.707M6.707 6.707l-.707-.707m10.606 0l.707-.707M6.707 17.293l-.707.707M12 7a5 5 0 100 10 5 5 0 000-10z"></path>
+                    <path id="mobile-moon-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section-padding text-center min-h-screen flex items-center justify-center bg-black text-white">
+        <div class="container-max-width animate-fade-in-up flex flex-col md:flex-row items-center md:justify-center md:space-x-12">
+            <!-- Profile Picture Placeholder with Glow -->
+            <div class="profile-glow-container mx-auto mb-8 md:mb-0 md:w-1/3 flex justify-center">
+                <img src="logos/profile pic.webp" alt="Nathaniel Coronacion Profile" class="rounded-full w-64 h-64 object-cover border-4 border-dark-coffee shadow-lg">
+            </div>
+
+            <div class="md:w-2/3 text-center md:text-left">
+                <h1 class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight">
+                    Hi, I'm <span class="text-dark-coffee">Nathaniel Coronacion</span>
+                </h1>
+                <p class="text-2xl md:text-3xl text-white mb-8">
+                    A passionate <span class="font-semibold text-dark-coffee">Software Engineer</span>
+                </p>
+                <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto md:mx-0 mb-10">
+                    Crafting robust and scalable server-side solutions with a focus on clean architecture and efficient APIs, 
+                    supported by a strong background in systems-level programming and game development.
+                </p>
+                <a href="#projects" class="inline-block bg-dark-coffee text-white font-semibold py-3 px-8 rounded-full shadow-lg btn-primary">
+                    View Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="section-padding bg-white text-black">
+        <div class="container-max-width animate-fade-in-up">
+            <h2 class="text-4xl font-bold text-center mb-12">About <span class="text-dark-coffee">Me</span></h2>
+            <p class="text-lg md:text-xl text-gray-700 text-center max-w-3xl mx-auto mb-10">
+                I'm a dedicated Software Engineer with a strong foundation in backend development and a passion for building robust, scalable, and efficient applications. My journey in software engineering is driven by a desire to solve complex problems and create impactful solutions.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
+                <!-- Who I Am -->
+                <div class="bg-gray-100 p-8 rounded-lg shadow-md border border-gray-200">
+                    <h3 class="text-2xl font-semibold mb-4 text-dark-coffee flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-check"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>
+                        Who I Am
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        I am Nathaniel Coronacion, a 4th-year Computer Science student with a keen interest in backend systems, 
+                        database management, and API design. My academic background has provided me with a solid understanding 
+                        of data structures, algorithms, and software engineering principles. 
+                        I thrive in environments where I can continuously learn and apply new technologies to real-world challenges. 
+                        I am a firm believer in clean code, test-driven development, and collaborative problem-solving.
+                    </p>
+                </div>
+
+                <!-- What I Do -->
+                <div class="bg-gray-100 p-8 rounded-lg shadow-md border border-gray-200">
+                    <h3 class="text-2xl font-semibold mb-4 text-dark-coffee flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        What I Do
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed">
+                         My expertise lies in developing scalable backend services, low-level programming, desktop app development,
+                         and game development using languages like Java, PHP, C#, C++, and C, and frameworks such as Spring Boot, Laravel, and .NET.
+                         I have experience with various databases including PostgreSQL, MySQL, MongoDB, and MariaDB. 
+                         I am proficient in building RESTful APIs, implementing authentication and authorization, 
+                         and integrating third-party services. I also have a foundational understanding of DevOps practices, 
+                         including Docker and Git, to ensure efficient deployment and version control.
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#contact" class="inline-block bg-dark-coffee text-white font-semibold py-3 px-8 rounded-full shadow-lg btn-primary">
+                    Let's Connect
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding bg-white text-black">
+        <div class="container-max-width animate-fade-in-up">
+            <h2 class="text-4xl font-bold text-center mb-12">My <span class="text-dark-coffee">Projects</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md border border-gray-200 project-card">
+                    <img src="https://placehold.co/400x250/6F5B4E/FFFFFF?text=Mitolohiya+Project" alt="Mitolohiya Project Placeholder" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="text-2xl font-semibold mb-3">Mitolohiya</h3>
+                    <p class="text-gray-700 mb-4">
+                        Created a 2D platformer in Unity centered on Filipino mythology, 
+                        featuring characters like Bakunawa, Dumakulem, and Bathala, with story-driven progression, 
+                        custom level design, and full gameplay architecture.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-dark-coffee text-white text-xs font-medium px-2.5 py-0.5 rounded-full">Node.js</span>
+                        <span class="bg-dark-coffee text-white text-xs font-medium px-2.5 py-0.5 rounded-full">Express</span>
+                        <span class="bg-dark-coffee text-white text-xs font-medium px-2.5 py-0.5 rounded-full">MongoDB</span>
+                        <span class="bg-dark-coffee text-white text-xs font-medium px-2.5 py-0.5 rounded-full">JWT</span>
+                    </div>
+                    <div class="flex justify-start items-center gap-4">
+                        <a href="https://github.com/yourusername/ecommerce-api" target="_blank" rel="noopener noreferrer" class="text-dark-coffee hover:underline flex items-center">
+                            <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017 2 16.085 4.408 19.497 7.633 20.73c.432.079.592-.182.592-.4V19.02c-3.35.727-4.046-1.61-4.046-1.61-.547-1.387-1.334-1.758-1.334-1.758-1.09-.745.083-.73.083-.73 1.205.084 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.49.997.107-.775.418-1.304.762-1.604-2.665-.305-5.467-1.334-5.467-5.932 0-1.31.465-2.38 1.234-3.22-.12-.303-.535-1.52.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.003.404 2.293-1.552 3.3-1.23 3.3-1.23.653 1.656.239 2.873.12 3.176.77.84 1.235 1.91 1.235 3.22 0 4.607-2.807 5.624-5.477 5.922.429.369.816 1.1.816 2.219V20.33c0 .219.16.482.593.4C19.593 19.497 22 16.085 22 12.017 22 6.484 17.523 2 12 2Z" clip-rule="evenodd" />
+                            </svg>
+                            GitHub
+                        </a>
+                        <a href="https://swagger.io/swagger-ui/" target="_blank" rel="noopener noreferrer" class="bg-dark-coffee text-white text-xs font-medium px-2.5 py-1 rounded-full hover:bg-light-coffee transition-colors">Swagger Docs</a>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md border border-gray-200 project-card">
+                    <img src="https://placehold.co/400x250/4A3C32/FFFFFF?text=Airconditioning+Website" alt="Airconditioning Website Project Placeholder" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="text-2xl font-semibold mb-3">Airconditioning Website with e-commerce</h3>
+                    <p class="text-gray-700 mb-4">
+                        A comprehensive, full-fledged web application for an air conditioning business, 
+                        seamlessly integrating E-Commerce functionality for product sales, service bookings, and real-time customer management.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-dark-coffee text-white text-xs font-medium px-2.5 py-0.5 rounded-full">HTML, CSS, JavaScript</span>
+                        <span class="bg-dark-coffee text-white text-xs font-medium px-2.5 py-0.5 rounded-full">PHP</span>
+                        <span class="bg-dark-coffee text-white text-xs font-medium px-2.5 py-0.5 rounded-full">MySQL</span>
+                        <span class="bg-dark-coffee text-white text-xs font-medium px-2.5 py-0.5 rounded-full">Tailwind</span>
+                    </div>
+                    <div class="flex justify-start items-center gap-4">
+                        <a href="https://github.com/yourusername/chat-app-microservices" target="_blank" rel="noopener noreferrer" class="text-dark-coffee hover:underline flex items-center">
+                            <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017 2 16.085 4.408 19.497 7.633 20.73c.432.079.592-.182.592-.4V19.02c-3.35.727-4.046-1.61-4.046-1.61-.547-1.387-1.334-1.758-1.334-1.758-1.09-.745.083-.73.083-.73 1.205.084 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.49.997.107-.775.418-1.304.762-1.604-2.665-.305-5.467-1.334-5.467-5.932 0-1.31.465-2.38 1.234-3.22-.12-.303-.535-1.52.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.003.404 2.293-1.552 3.3-1.23 3.3-1.23.653 1.656.239 2.873.12 3.176.77.84 1.235 1.91 1.235 3.22 0 4.607-2.807 5.624-5.477 5.922.429.369.816 1.1.816 2.219V20.33c0 .219.16.482.593.4C19.593 19.497 22 16.085 22 12.017 22 6.484 17.523 2 12 2Z" clip-rule="evenodd" />
+                            </svg>
+                            GitHub
+                        </a>
+                        <a href="https://postman.com/" target="_blank" rel="noopener noreferrer" class="bg-dark-coffee text-white text-xs font-medium px-2.5 py-1 rounded-full hover:bg-light-coffee transition-colors">Postman Collection</a>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md border border-gray-200 project-card">
+                    <img src="https://placehold.co/400x250/6F5B4E/FFFFFF?text=POS+Application" alt="POS Application Project Placeholder" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="text-2xl font-semibold mb-3">Point Of Sales Application</h3>
+                    <p class="text-gray-700 mb-4">
+                        Developed a POS System for small stores with all features such as CRUD, managing stock, analytics review, sales transactions and authentication.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-dark-coffee text-white text-xs font-medium px-2.5 py-0.5 rounded-full">Java</span>
+                        <span class="bg-dark-coffee text-white text-xs font-medium px-2.5 py-0.5 rounded-full">Spring Batch</span>
+                        <span class="bg-dark-coffee text-white text-xs font-medium px-2.5 py-0.5 rounded-full">SQL Server</span>
+                        <span class="bg-dark-coffee text-white text-xs font-medium px-2.5 py-0.5 rounded-full">Kafka</span>
+                    </div>
+                    <div class="flex justify-start items-center gap-4">
+                        <a href="https://github.com/yourusername/healthcare-etl" target="_blank" rel="noopener noreferrer" class="text-dark-coffee hover:underline flex items-center">
+                            <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017 2 16.085 4.408 19.497 7.633 20.73c.432.079.592-.182.592-.4V19.02c-3.35.727-4.046-1.61-4.046-1.61-.547-1.387-1.334-1.758-1.334-1.758-1.09-.745.083-.73.083-.73 1.205.084 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.49.997.107-.775.418-1.304.762-1.604-2.665-.305-5.467-1.334-5.467-5.932 0-1.31.465-2.38 1.234-3.22-.12-.303-.535-1.52.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.003.404 2.293-1.552 3.3-1.23 3.3-1.23.653 1.656.239 2.873.12 3.176.77.84 1.235 1.91 1.235 3.22 0 4.607-2.807 5.624-5.477 5.922.429.369.816 1.1.816 2.219V20.33c0 .219.16.482.593.4C19.593 19.497 22 16.085 22 12.017 22 6.484 17.523 2 12 2Z" clip-rule="evenodd" />
+                            </svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-padding bg-black text-white">
+        <div class="container-max-width animate-fade-in-up">
+            <h2 class="text-4xl font-bold text-center mb-12">My <span class="text-dark-coffee">Tech Stack</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Languages -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-dark-coffee">Languages</h3>
+                    <ul class="list-none space-y-2 text-gray-300">
+                        <li class="flex items-center gap-2">
+                            <img src="https://img.icons8.com/color/24/000000/java-coffee-cup-logo--v1.png" alt="Java" class="w-6 h-6"/>
+                            Java
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <img src="https://img.icons8.com/color/24/000000/python--v1.png" alt="Python" class="w-6 h-6"/>
+                            Python
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <img src="https://img.icons8.com/color/24/000000/c-plus-plus-logo.png" alt="C++" class="w-6 h-6"/>
+                            C++
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <img src="logos/c-programming-language-logotic.png" alt="C" class="w-6 h-6"/>
+                            C
+                        </li>
+                        <li class="flex items-center gap-2">
+                            
+                            <img src="logos/file_type_sql_icon_130152.png" alt="SQL" class="w-6 h-6"/>
+                            SQL
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <img src="https://img.icons8.com/color/24/000000/unity.png" alt="Unity" class="w-6 h-6"/>
+                            C#
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <img src="https://img.icons8.com/officel/24/000000/php-logo.png" alt="PHP" class="w-6 h-6"/>
+                            PHP (Laravel)
+                        </li>
+                    </ul>
+                </div>
+                <!-- Frameworks -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-dark-coffee">Frameworks</h3>
+                    <ul class="list-none space-y-2 text-gray-300">
+                        <li class="flex items-center gap-2">
+                            <img src="https://img.icons8.com/color/24/000000/spring-boot.png" alt="Spring Boot" class="w-6 h-6"/>
+                            Spring Boot
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <img src="https://img.icons8.com/color/24/000000/django.png" alt="Django" class="w-6 h-6"/>
+                            Django / Flask
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <img src="https://img.icons8.com/color/24/000000/nodejs.png" alt="Express.js" class="w-6 h-6"/>
+                            Express.js
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <img src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/24/000000/external-gin-a-lightweight-web-framework-written-in-go-logo-color-tal-revivo.png" alt="Gin" class="w-6 h-6"/>
+                            Gin
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <img src="https://img.icons8.com/color/24/000000/fastapi.png" alt="FastAPI" class="w-6 h-6"/>
+                            FastAPI
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <img src="https://img.icons8.com/color/24/000000/net-framework.png" alt=".NET Framework" class="w-6 h-6"/>
+                            .NET Framework
+                        </li>
+                    </ul>
+                </div>
+                <!-- Databases -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-dark-coffee">Databases</h3>
+                    <ul class="list-none space-y-2 text-gray-300">
+                        <li class="flex items-center gap-2">
+                            <img src="https://img.icons8.com/color/24/000000/postgreesql.png" alt="PostgreSQL" class="w-6 h-6"/>
+                            PostgreSQL
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <img src="https://img.icons8.com/color/24/000000/mysql-logo.png" alt="MySQL" class="w-6 h-6"/>
+                            MySQL
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <img src="https://img.icons8.com/color/24/000000/mongodb.png" alt="MongoDB" class="w-6 h-6"/>
+                            MongoDB
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <img src="https://img.icons8.com/color/24/000000/redis.png" alt="Redis" class="w-6 h-6"/>
+                            Redis
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <img src="https://img.icons8.com/color/24/000000/apache-cassandra.png" alt="Cassandra" class="w-6 h-6"/>
+                            Cassandra
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <img src="logos/file_type_sql_icon_130152.png" alt="Laragon" class="w-6 h-6"/>
+                            Laragon
+                        </li>
+                    </ul>
+                </div>
+                <!-- Tools/DevOps -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-dark-coffee">Tools, DevOps, Game Engines</h3>
+                    <ul class="list-none space-y-2 text-gray-300">
+                        <li class="flex items-center gap-2">
+                            <img src="https://img.icons8.com/color/24/000000/docker.png" alt="Docker" class="w-6 h-6"/>
+                            Docker
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <img src="https://img.icons8.com/color/24/000000/kubernetes.png" alt="Kubernetes" class="w-6 h-6"/>
+                            Kubernetes
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <img src="logos/github_PNG40.png" alt="Git/GitHub" class="w-6 h-6"/>
+                            Git / GitHub
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <img src="https://img.icons8.com/color/24/000000/amazon-web-services.png" alt="AWS" class="w-6 h-6"/>
+                            AWS / GCP
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <img src="https://img.icons8.com/color/24/000000/unity.png" alt="Jenkins" class="w-6 h-6"/>
+                            Unity
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <img src="https://img.icons8.com/color/24/000000/terraform.png" alt="Terraform" class="w-6 h-6"/>
+                            Terraform
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section-padding bg-white text-black">
+        <div class="container-max-width animate-fade-in-up">
+            <h2 class="text-4xl font-bold text-center mb-12">
+                My <span class="text-dark-coffee">Experience</span>
+            </h2>
+
+            <!-- Software Engineer Title -->
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold">Software Engineer / Backend Developer</h2>
+            </div>
+
+            <!-- Game Development -->
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md border border-gray-200 mb-10">
+                <h3 class="text-2xl font-semibold mb-2">Game Development</h3>
+                <p class="text-dark-coffee text-lg mb-3">January 2025 – June 2025</p>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>Created a multiplayer Chess game in Java featuring rule enforcement (check, checkmate, castling, en passant), move logging, and built-in multiplayer chat using sockets.</li>
+                    <li>Applied object-oriented design, multithreading, socket programming, and finite state machines to structure and manage gameplay logic.</li>
+                    <li>Implemented game logic, character stats, and win/lose conditions, and applied OOP and Software Engineering principles for a Computer Science thesis game.</li>
+                    <li>Solo developed a 2D game in Unity called Bug Buster, handling architecture, logic, sound playing, game states, scoring, win/lose conditions, and character modeling.</li>
+                    <li>Solo developed a 2D game in Java called Dino Dash, a scrolling game where player must dodge the obstacles and gain score, speed becomes faster as game progresses.</li>
+                </ul>
+            </div>
+
+            <!-- Backend & Desktop Applications -->
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md border border-gray-200 mb-10">
+                <h3 class="text-2xl font-semibold mb-2">Backend & Desktop Applications</h3>
+                <p class="text-dark-coffee text-lg mb-3">May 2023 – August 2023 & January 2025 – June 2025</p>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>Designed and implemented backend architecture for a Google Keep-inspired note-taking app as a final project in Web Programming.</li>
+                    <li>Built RESTful APIs for note creation, editing, deletion, and tagging using PHP and MySQL.</li>
+                    <li>Handled database schema design, user authentication, and session management.</li>
+                    <li>Collaborated with frontend team members to ensure seamless integration and responsive data flow between backend and UI.</li>
+                    <li>Developed a Technician Booking Application using Java with MySQL, implementing secure authentication, password hashing, real-time communication using sockets, booking workflows, and full CRUD operations.</li>
+                    <li>Developed a Password Manager desktop application in Java with login authentication, hashing, password search features, and a custom UI.</li>
+                    <li>Created a Weather Application in Java with basic API integration and GUI display.</li>
+                    <li>Developed a POS (Point of Sales) application in Java for sari-sari stores, including CRUD operations, user login and authentication, security, report analytics, product catalog, sales transaction, and inventory management.</li>
+                    <li>Built basic CLI utilities in C and C++ such as a mini bank simulator, file encryption tool, and student grading system to learn low-level systems programming and memory handling.</li>
+                </ul>
+            </div>
+
+            <!-- Web & Full Stack Projects -->
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md border border-gray-200 mb-10">
+                <h3 class="text-2xl font-semibold mb-2">Web Development | Frontend & Backend</h3>
+                <p class="text-dark-coffee text-lg mb-3">January 2025 – June 2025</p>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>Designed and launched a promotional website for a local coffee shop in Cavite City with an integrated contact form and email functionality.</li>
+                    <li>Developed the official website for a local air conditioning and refrigeration services business, including service listings, booking forms, contact options, and backend logic using PHP and MySQL.</li>
+                    <li>Worked independently across the full stack—coding the backend logic, connecting it to a relational database, and implementing dynamic UI features using basic JavaScript and AI-assisted layouts.</li>
+                    <li>Collaborated with a small team of technicians and a secretary to gather requirements and adjust the features based on actual customer needs.</li>
+                </ul>
+            </div>
+
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md border border-gray-200 mb-10">
+    <h3 class="text-2xl font-semibold mb-2">Low-Level Programming</h3>
+    <p class="text-dark-coffee text-lg mb-3">January 2025 – June 2025</p>
+    <ul class="list-disc list-inside space-y-2 text-gray-700">
+        <li>Dived deep into C++ and C for mastering data structures and algorithms, focusing on memory management and performance.</li>
+        <li>Started building my own programming language from scratch to better understand compilers, interpreters, and language design.</li>
+        <li>Practiced STL, pointers, and algorithm/code optimization techniques for both languages in hands-on coding challenges and projects.</li>
+        <li>Here’s one of the C++ snippets I wrote for filtering unique characters from a string while preserving order:</li>
+    </ul>
+
+    <div class="bg-gray-900 text-green-400 font-mono text-sm p-4 rounded-md overflow-auto shadow-md my-4">
+        <pre><code>#include &lt;iostream&gt;
+#include &lt;unordered_set&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+int main(){
+    unordered_set&lt;char&gt; uniqueChar;
+    vector&lt;char&gt; orderedUnique;
+
+    string word = "tekken 7";
+    for(char c : word){
+        if(uniqueChar.find(c) == uniqueChar.end()){
+            uniqueChar.insert(c);
+            orderedUnique.push_back(c);
+        }
+    }
+    for(char i : orderedUnique) cout &lt;&lt; i &lt;&lt; " ";
+}</code></pre>
+    </div>
+</div>
+
+        </div>
+    </section>
+
+
+    <!-- Education Section -->
+    <section id="education" class="section-padding bg-black text-white">
+        <div class="container-max-width animate-fade-in-up">
+            <h2 class="text-4xl font-bold text-center mb-12">My <span class="text-dark-coffee">Education</span></h2>
+            <div class="space-y-8">
+                <!-- Education 1 -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-md border border-gray-700 flex items-start space-x-4">
+                    <!-- Graduation Cap Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap text-dark-coffee mt-1">
+                        <path d="M21.43 12.03V16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7.5L12 2l10 5.5v4.5"/>
+                        <path d="M22 17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7.5L12 2l10 5.5v4.5"/>
+                        <path d="M12 2v16"/>
+                        <path d="M7 16l-5 3"/>
+                        <path d="M17 16l5 3"/>
+                    </svg>
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-2">STI College Bacoor</h3>
+                        <p class="text-dark-coffee text-lg mb-1">Bachelor of Science in Computer Science</p>
+                        <p class="text-gray-400">Sep 2022 - July 2026</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-white text-black">
+        <div class="container-max-width animate-fade-in-up">
+            <h2 class="text-4xl font-bold text-center mb-12">Get In <span class="text-dark-coffee">Touch</span></h2>
+            <div class="flex flex-col md:flex-row gap-12 justify-center items-start">
+                <!-- Contact Info -->
+                <div class="md:w-1/2 lg:w-1/3 space-y-6 text-center md:text-left">
+                    <p class="text-lg text-gray-700">Feel free to reach out for collaborations, project inquiries, or just a chat!</p>
+                    <div class="flex items-center justify-center md:justify-start gap-3">
+                        <!-- Email Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail text-dark-coffee"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        <a href="mailto:nathanielcoronacion3@gmail.com" class="text-dark-coffee hover:underline text-lg">nathanielcoronacion3@gmail.com</a>
+                    </div>
+                    <div class="flex items-center justify-center md:justify-start gap-3">
+                        <!-- GitHub Icon -->
+                        <svg class="w-6 h-6 text-dark-coffee" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017 2 16.085 4.408 19.497 7.633 20.73c.432.079.592-.182.592-.4V19.02c-3.35.727-4.046-1.61-4.046-1.61-.547-1.387-1.334-1.758-1.334-1.758-1.09-.745.083-.73.083-.73 1.205.084 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.49.997.107-.775.418-1.304.762-1.604-2.665-.305-5.467-1.334-5.467-5.932 0-1.31.465-2.38 1.234-3.22-.12-.303-.535-1.52.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.003.404 2.293-1.552 3.3-1.23 3.3-1.23.653 1.656.239 2.873.12 3.176.77.84 1.235 1.91 1.235 3.22 0 4.607-2.807 5.624-5.477 5.922.429.369.816 1.1.816 2.219V20.33c0 .219.16.482.593.4C19.593 19.497 22 16.085 22 12.017 22 6.484 17.523 2 12 2Z" clip-rule="evenodd" />
+                        </svg>
+                        <a href="https://github.com/Tanjiro5834/nathz" target="_blank" rel="noopener noreferrer" class="text-dark-coffee hover:underline text-lg">GitHub Profile</a>
+                    </div>
+                    <div class="flex items-center justify-center md:justify-start gap-3">
+                        <!-- LinkedIn Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin text-dark-coffee"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        <a href="https://www.linkedin.com/in/nathaniel-coronacion-647605277/" target="_blank" rel="noopener noreferrer" class="text-dark-coffee hover:underline text-lg">LinkedIn Profile</a>
+                    </div>
+                </div>
+
+                <!-- Contact Form (Optional) -->
+                <div class="md:w-1/2 lg:w-2/3 w-full bg-gray-100 p-8 rounded-lg shadow-md border border-gray-200">
+                    <h3 class="text-2xl font-semibold text-center mb-6">Send Me a Message</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-gray-700 text-sm font-medium mb-1">Name</label>
+                            <input type="text" id="name" name="name" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-dark-coffee transition-all duration-200" placeholder="Your Name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 text-sm font-medium mb-1">Email</label>
+                            <input type="email" id="email" name="email" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-dark-coffee transition-all duration-200" placeholder="your.email@example.com">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 text-sm font-medium mb-1">Message</label>
+                            <textarea id="message" name="message" rows="5" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-dark-coffee transition-all duration-200" placeholder="Your message..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-dark-coffee text-white font-semibold py-3 rounded-md shadow-lg btn-primary">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white text-center p-8 mt-12 shadow-inner">
+        <div class="container-max-width mx-auto">
+            <p class="text-lg mb-2">&copy; 2025 Nathaniel Coronacion. All rights reserved.</p>
+            <div class="flex justify-center space-x-4">
+                <a href="https://github.com/Tanjiro5834/nathz" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-dark-coffee transition-colors">GitHub</a>
+                <a href="https://www.linkedin.com/in/nathaniel-coronacion-647605277/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-dark-coffee transition-colors">LinkedIn</a>
+                <a href="mailto:nathanielcoronacion3@gmail.com" class="text-gray-400 hover:text-dark-coffee transition-colors">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuButton.classList.toggle('open');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.classList.remove('open');
+            });
+        });
+
+        // Dark mode toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+        const htmlElement = document.documentElement;
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+        const mobileSunIcon = document.getElementById('mobile-sun-icon');
+        const mobileMoonIcon = document.getElementById('mobile-moon-icon');
+
+        // Function to set theme
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                htmlElement.classList.add('dark');
+                if (sunIcon) sunIcon.classList.add('hidden');
+                if (moonIcon) moonIcon.classList.remove('hidden');
+                if (mobileSunIcon) mobileSunIcon.classList.add('hidden');
+                if (mobileMoonIcon) mobileMoonIcon.classList.remove('hidden');
+            } else {
+                htmlElement.classList.remove('dark');
+                if (sunIcon) sunIcon.classList.remove('hidden');
+                if (moonIcon) moonIcon.classList.add('hidden');
+                if (mobileSunIcon) mobileSunIcon.classList.remove('hidden');
+                if (mobileMoonIcon) mobileMoonIcon.classList.add('hidden');
+            }
+            localStorage.setItem('theme', theme);
+        }
+
+        // Check for saved theme preference on load
+        const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        setTheme(savedTheme);
+
+        // Event listeners for theme toggles
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = htmlElement.classList.contains('dark') ? 'light' : 'dark';
+                setTheme(currentTheme);
+            });
+        }
+
+        if (mobileThemeToggle) {
+            mobileThemeToggle.addEventListener('click', () => {
+                const currentTheme = htmlElement.classList.contains('dark') ? 'light' : 'dark';
+                setTheme(currentTheme);
+            });
+        }
+
+        // Intersection Observer for scroll animations
+        const animateOnScrollElements = document.querySelectorAll('.animate-fade-in-up');
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, {
+            threshold: 0.1, // Trigger when 10% of the element is visible
+            rootMargin: '0px 0px -50px 0px' // Adjust when element enters viewport
+        });
+
+        animateOnScrollElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Smooth scroll for internal navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
